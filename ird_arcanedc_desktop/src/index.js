@@ -11,8 +11,7 @@ ReactDOM.render(
   <React.StrictMode>
      <BrowserRouter>
         <div className="App">
-          <Route path="/" exact component={App} />
-          <Route path="/Profile" exact component={Profile} />
+            <App/>
         </div>
       </BrowserRouter>
   </React.StrictMode>,
