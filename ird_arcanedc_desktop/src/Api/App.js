@@ -22,8 +22,10 @@ function runExpressServer(applicationFolderPath) {
     //app.use(require('./middlewares/users'))
     express_app.use(require('./Controllers/index'))
 
+   express_app.locals.folderPath = applicationFolderPath
+
     express_app.listen(5000, function () {
-        console.log('Listening on port 5000...')
+        console.log('Listening on port 5000...' , applicationFolderPath)
     })
 }
 

@@ -1,8 +1,8 @@
 const fs = require('fs');
 
 
-//Check Wether the Application Folder Structure exist in the OS dependent APP data Directory
-//If Not Initialize it 
+
+//Initialize App Data Folder with Structure 
 function initializeAppFolderStructure() {
     
     if(isInitialized() !== true )
@@ -16,6 +16,7 @@ function initializeAppFolderStructure() {
 
 }
 
+//Check Wether the Application Folder Structure exist in the OS dependent APP data Directory
 function isInitialized(){
 
 

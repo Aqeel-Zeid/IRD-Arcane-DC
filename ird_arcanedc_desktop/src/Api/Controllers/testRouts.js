@@ -4,7 +4,7 @@ const express = require('express')
 
 
   router.get('/testRoute1', (req, res) => {
-    console.log(__dirname)
+    console.log(req.app.locals.folderPath)
     res.send('Test Route').status(200);
   })
 
