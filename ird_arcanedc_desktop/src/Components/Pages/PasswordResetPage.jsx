@@ -6,8 +6,7 @@ import Paper from '@material-ui/core/Paper';
 import Grid from '@material-ui/core/Grid';
 import { makeStyles } from '@material-ui/core/styles';
 
-import LoginForm from "../Molecules/LoginForm"
-
+import PasswordResetForm from "../Molecules/PasswordResetForm"
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -31,7 +30,7 @@ export default function SignInSide() {
       <CssBaseline />
       <Grid item xs={false} sm={4} md={7} className={classes.image} />
       <Grid item xs={12} sm={8} md={5} component={Paper} elevation={6} square>
-          <LoginForm/>
+          <PasswordResetForm/>
       </Grid>
     </Grid>
   );
