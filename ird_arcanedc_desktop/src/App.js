@@ -4,12 +4,16 @@ import PasswordResetPage from "./Components/Pages/PasswordResetPage";
 import LoginPage from "./Components/Pages/LoginPage";
 import SignUpPage from "./Components/Pages/SignUpPage";
 import CreateProjectPage from "./Components/Pages/CreateProjectPage";
+import SideBar from "./Components/Layouts/SideBar";
 
 export default class App extends React.Component {
   render() {
     return (
       <>
         <Switch>
+          <Route path="/SideBar">
+            <SideBar />
+          </Route>
           <Route path="/PasswordReset">
             <PasswordResetPage />
           </Route>

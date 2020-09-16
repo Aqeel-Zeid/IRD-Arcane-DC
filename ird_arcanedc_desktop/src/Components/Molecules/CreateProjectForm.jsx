@@ -4,7 +4,7 @@ import Button from '@material-ui/core/Button';
 import TextField from '@material-ui/core/TextField';
 import Box from '@material-ui/core/Box';
 import Grid from '@material-ui/core/Grid';
-import LockOutlinedIcon from '@material-ui/icons/LockOutlined';
+import AssessmentIcon from '@material-ui/icons/Assessment';
 import { makeStyles } from '@material-ui/core/styles';
 import Typography from '@material-ui/core/Typography';
 import { Link } from "react-router-dom";
@@ -12,6 +12,7 @@ import Copyright from './Copyright';
 import { KeyboardDatePicker, MuiPickersUtilsProvider } from '@material-ui/pickers';
 import DateFnsUtils from '@date-io/date-fns';
 import 'date-fns';
+import {Col, Row} from 'react-bootstrap'
 
 // Custom Styling for the Form 
 const useStyles = makeStyles((theme) => ({
@@ -38,7 +39,7 @@ export default function CreateProjectForm() {
 
     const classes = useStyles();
 
-    const [selectedDate, setSelectedDate] = useState(new Date('2014-08-18T21:11:54'));
+    const [selectedDate, setSelectedDate] = useState(new Date());
 
     const handleDateChange = (date) => {
         setSelectedDate(date);
@@ -50,10 +51,10 @@ export default function CreateProjectForm() {
             <br />
             <div className={classes.paper}>
                 <Avatar className={classes.avatar}>
-                    <LockOutlinedIcon />
+                    <AssessmentIcon />
                 </Avatar>
                 <Typography component="h1" variant="h5">
-                    Sign in
+                    Create Project
                 </Typography>
                 <hr />
                 <form className={classes.form}>
@@ -93,17 +94,32 @@ export default function CreateProjectForm() {
                         disabled
                         autoFocus
                     />
+                    <TextField
+                        variant="outlined"
+                        margin="normal"
+                        required
+                        fullWidth
+                        id="projectcoemail"
+                        label="Project Co-rodinator Email"
+                        name="projectcoemail"
+                        autoComplete="projectcoemail"
+                        disabled
+                        autoFocus
+                    />
                     <Grid container justify="space-around">
                         <MuiPickersUtilsProvider utils={DateFnsUtils}>
                             <KeyboardDatePicker
-                                margin="normal"
-                                id="date-picker-dialog"
-                                label="Date picker dialog"
+                                disableToolbar
+                                variant="inline"
                                 format="MM/dd/yyyy"
+                                margin="normal"
+                                id="date-picker-inline"
+                                label="Project Deadline"
                                 value={selectedDate}
                                 onChange={handleDateChange}
                                 KeyboardButtonProps={{ 'aria-label': 'change date', }}
                                 fullWidth
+                                required
                             />
                         </MuiPickersUtilsProvider>
                     </Grid>
@@ -116,24 +132,8 @@ export default function CreateProjectForm() {
                         color="primary"
                         className={classes.submit}
                     >
-                        Sign In
+                        Create Project
                     </Button>
-                    <Grid container>
-                        <Grid item xs>
-                            <Link to="/PasswordReset" variant="body2">
-                                <Button>
-                                    Forgot password?
-                                </Button>
-                            </Link>
-                        </Grid>
-                        <Grid item>
-                            <Link to="/SignUp" >
-                                <Button color="info">
-                                    {"Register as New Lead Co-ordinator"}
-                                </Button>
-                            </Link>
-                        </Grid>
-                    </Grid>
                     <Box mt={5}>
                         <Copyright />
                     </Box>
