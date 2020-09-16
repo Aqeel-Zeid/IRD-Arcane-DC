@@ -1,20 +1,7 @@
+const runExpressServer =  require ('./src/Api/App.js')
+
 const electron = require('electron');
-var cors = require('cors');
-// Module to control application life.
 
-// Initializing Express JS
-var express = require('express');
-var express_app = express();
-var bodyParser = require('body-parser');
-
-//start body-parser configuration
-express_app.use(bodyParser.json());       // to support JSON-encoded bodies
-express_app.use(bodyParser.urlencoded({     // to support URL-encoded bodies
-    extended: true
-}));
-//end body-parser configuration
-
-express_app.use(cors());
 
 const app = electron.app;
 // Module to create native browser window.
@@ -41,28 +28,15 @@ function createWindow() {
         });
 
     // and load the index.html of the app.
-    mainWindow.loadURL('http://localhost:3000');
+    mainWindow.loadURL('http://localhost:3000/');
 
     // Open the DevTools.
     mainWindow.webContents.openDevTools();
 
-    var server = express_app.listen(8000, function () {
-        var host = server.address().address;
-        var port = server.address().port;
-        console.log('Server starting listening at http://%s:%s', host, port);
-    });
+    console.log(app.getPath("appData"))
 
-     // Emitted when the window is closed.
-    //  mainWindow.on('closed', function () {
-    //     // Dereference the window object, usually you would store windows
-    //     // in an array if your app supports multi windows, this is the time
-    //     // when you should delete the corresponding element.
-    //     mainWindow = null
-
-    //     //close Server
-    //     server.close();
-
-    // })
+    runExpressServer()
+    
 }
 
 // This method will be called when Electron has finished
