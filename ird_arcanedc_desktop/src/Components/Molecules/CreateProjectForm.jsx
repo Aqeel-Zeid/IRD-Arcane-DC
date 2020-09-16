@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import Avatar from '@material-ui/core/Avatar';
 import Button from '@material-ui/core/Button';
 import TextField from '@material-ui/core/TextField';
@@ -9,6 +9,9 @@ import { makeStyles } from '@material-ui/core/styles';
 import Typography from '@material-ui/core/Typography';
 import { Link } from "react-router-dom";
 import Copyright from './Copyright';
+import { KeyboardDatePicker, MuiPickersUtilsProvider } from '@material-ui/pickers';
+import DateFnsUtils from '@date-io/date-fns';
+import 'date-fns';
 
 // Custom Styling for the Form 
 const useStyles = makeStyles((theme) => ({
@@ -31,9 +34,15 @@ const useStyles = makeStyles((theme) => ({
     },
 }));
 
-export default function LoginForm() {
+export default function CreateProjectForm() {
 
     const classes = useStyles();
+
+    const [selectedDate, setSelectedDate] = useState(new Date('2014-08-18T21:11:54'));
+
+    const handleDateChange = (date) => {
+        setSelectedDate(date);
+    };
 
     return (
         <>
@@ -47,30 +56,58 @@ export default function LoginForm() {
                     Sign in
                 </Typography>
                 <hr />
-                <form className={classes.form} onSubmit={(e) => { e.preventDefault(); window.location.href='/CreateProject'}}>
+                <form className={classes.form}>
                     <TextField
                         variant="outlined"
                         margin="normal"
                         required
                         fullWidth
-                        id="email"
-                        label="Lead Co-ordinator Email"
-                        name="email"
-                        autoComplete="email"
+                        id="pcode"
+                        label="Project Code"
+                        name="pcode"
+                        autoComplete="pcode"
+                        helperText="Short name for the project"
                         autoFocus
                     />
-                    <br />
-                    <br />
                     <TextField
                         variant="outlined"
                         margin="normal"
                         required
                         fullWidth
-                        id="password"
-                        label="Password"
-                        name="password"
-                        autoComplete="current-password"
+                        id="pname"
+                        label="Project Name"
+                        name="pname"
+                        autoComplete="pname"
+                        helperText="Full name of the project"
+                        autoFocus
                     />
+                    <TextField
+                        variant="outlined"
+                        margin="normal"
+                        required
+                        fullWidth
+                        id="projectco"
+                        label="Project Co-rodinator"
+                        name="projectco"
+                        autoComplete="projectco"
+                        disabled
+                        autoFocus
+                    />
+                    <Grid container justify="space-around">
+                        <MuiPickersUtilsProvider utils={DateFnsUtils}>
+                            <KeyboardDatePicker
+                                margin="normal"
+                                id="date-picker-dialog"
+                                label="Date picker dialog"
+                                format="MM/dd/yyyy"
+                                value={selectedDate}
+                                onChange={handleDateChange}
+                                KeyboardButtonProps={{ 'aria-label': 'change date', }}
+                                fullWidth
+                            />
+                        </MuiPickersUtilsProvider>
+                    </Grid>
+
 
                     <Button
                         type="submit"
