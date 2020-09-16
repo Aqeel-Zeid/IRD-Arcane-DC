@@ -1,4 +1,5 @@
-function runExpressServer() {
+function runExpressServer(applicationFolderPath) {
+
     var express = require('express')
     var cors = require('cors')
 

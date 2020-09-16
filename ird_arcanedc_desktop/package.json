@@ -1,6 +1,7 @@
 {
   "name": "ird_arcanedc_desktop",
   "version": "0.1.0",
+  "main": "electron-starter.js",
   "private": true,
   "dependencies": {
     "@date-io/date-fns": "^1.3.13",
@@ -13,6 +14,7 @@
     "cors": "^2.8.5",
     "date-fns": "^2.16.1",
     "datejs": "^1.0.0-rc3",
+    "electron-squirrel-startup": "^1.0.0",
     "express": "^4.17.1",
     "lodash": "^4.17.20",
     "moment": "2.24.0",
@@ -22,6 +24,11 @@
     "react-scripts": "^3.4.3"
   },
   "devDependencies": {
+    "@electron-forge/cli": "^6.0.0-beta.53",
+    "@electron-forge/maker-deb": "^6.0.0-beta.53",
+    "@electron-forge/maker-rpm": "^6.0.0-beta.53",
+    "@electron-forge/maker-squirrel": "^6.0.0-beta.53",
+    "@electron-forge/maker-zip": "^6.0.0-beta.53",
     "@types/googlemaps": "3.39.2",
     "@types/markerclustererplus": "2.1.33",
     "@types/react": "16.9.19",
@@ -32,12 +39,14 @@
     "typescript": "3.7.5"
   },
   "scripts": {
-    "start": "react-scripts start",
+    "start": "electron-forge start",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "electron": "electron electron-starter.js",
-    "install:clean": "rm -rf node_modules/ && rm -rf package-lock.json && npm install && npm start"
+    "install:clean": "rm -rf node_modules/ && rm -rf package-lock.json && npm install && npm start",
+    "package": "electron-forge package",
+    "make": "electron-forge make"
   },
   "eslintConfig": {
     "extends": "react-app"
@@ -47,5 +56,32 @@
     "not dead",
     "not ie <= 11",
     "not op_mini all"
-  ]
+  ],
+  "config": {
+    "forge": {
+      "packagerConfig": {},
+      "makers": [
+        {
+          "name": "@electron-forge/maker-squirrel",
+          "config": {
+            "name": "ird_arcanedc_desktop"
+          }
+        },
+        {
+          "name": "@electron-forge/maker-zip",
+          "platforms": [
+            "darwin"
+          ]
+        },
+        {
+          "name": "@electron-forge/maker-deb",
+          "config": {}
+        },
+        {
+          "name": "@electron-forge/maker-rpm",
+          "config": {}
+        }
+      ]
+    }
+  }
 }
