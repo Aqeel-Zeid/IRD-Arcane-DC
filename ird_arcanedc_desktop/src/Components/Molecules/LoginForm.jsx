@@ -2,22 +2,14 @@ import React from 'react';
 import Avatar from '@material-ui/core/Avatar';
 import Button from '@material-ui/core/Button';
 import TextField from '@material-ui/core/TextField';
-import FormControlLabel from '@material-ui/core/FormControlLabel';
-import Checkbox from '@material-ui/core/Checkbox';
-import Paper from '@material-ui/core/Paper';
 import Box from '@material-ui/core/Box';
 import Grid from '@material-ui/core/Grid';
 import LockOutlinedIcon from '@material-ui/icons/LockOutlined';
 import { makeStyles } from '@material-ui/core/styles';
-
 import Typography from '@material-ui/core/Typography';
 import { Link } from "react-router-dom";
-
 import Copyright from './Copyright';
 import { FormLabel } from '@material-ui/core';
-
-
-
 
 // Custom Styling for the Form 
 const useStyles = makeStyles((theme) => ({
@@ -55,34 +47,32 @@ export default function LoginForm() {
                 <Typography component="h1" variant="h5">
                     Sign in
                 </Typography>
-                <form className={classes.form} noValidate>
-                    <FormLabel>
-                        Lead Coordinator Email
-                    </FormLabel>
+                <hr />
+                <form className={classes.form}>
                     <TextField
                         variant="outlined"
                         margin="normal"
                         required
                         fullWidth
                         id="email"
+                        label="Lead Co-ordinator Email"
                         name="email"
                         autoComplete="email"
                         autoFocus
                     />
-                    <FormLabel>
-                        Password
-                    </FormLabel>
+                    <br />
+                    <br />
                     <TextField
                         variant="outlined"
                         margin="normal"
                         required
                         fullWidth
-                        name="password"
-                        type="password"
                         id="password"
+                        label="Password"
+                        name="password"
                         autoComplete="current-password"
                     />
-                    
+
                     <Button
                         type="submit"
                         fullWidth
@@ -102,8 +92,8 @@ export default function LoginForm() {
                         </Grid>
                         <Grid item>
                             <Link to="/SignUp" >
-                                <Button color = "info">
-                                    {"Register as New Lead Coordinator"}
+                                <Button color="info">
+                                    {"Register as New Lead Co-ordinator"}
                                 </Button>
                             </Link>
                         </Grid>
