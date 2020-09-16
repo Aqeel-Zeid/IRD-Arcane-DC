@@ -1,5 +1,5 @@
 const runExpressServer =  require ('./src/Api/App.js')
-
+const FileAndFolderHelper = require('./src/Api/helpers/FileAndFolderHelper')
 const electron = require('electron');
 
 
@@ -34,6 +34,9 @@ function createWindow() {
     mainWindow.webContents.openDevTools();
 
     //console.log(app.getPath("appData"))
+    
+    //Initialize The Folder Structure
+    FileAndFolderHelper.initializeAppFolderStructure(app.getPath("appData"));    
 
     runExpressServer(app.getPath("appData"))
     

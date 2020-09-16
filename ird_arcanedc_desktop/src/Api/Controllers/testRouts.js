@@ -6,7 +6,6 @@ const express = require('express')
 
   router.get('/testRoute1', (req, res) => {
     //console.log(req.app.locals.folderPath)
-    FileAndFolderHelper.initializeAppFolderStructure(req.app.locals.folderPath);
     res.send('Test Route Folder Path = ' + req.app.locals.folderPath ).status(200);
   })
 
