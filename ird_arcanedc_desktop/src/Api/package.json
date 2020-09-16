@@ -1,0 +1,14 @@
+{
+  "name": "arcane_dc_embeded_desktop_server",
+  "version": "1.0.0",
+  "description": "Embeded Server for Desktop Application Arcane Data Collector",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Aqeel Zeid",
+  "license": "ISC",
+  "dependencies": {
+    "cors": "^2.8.5"
+  }
+}

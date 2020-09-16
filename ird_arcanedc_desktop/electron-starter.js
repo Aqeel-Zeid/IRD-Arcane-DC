@@ -1,3 +1,5 @@
+const runExpressServer =  require ('./src/Api/App.js')
+
 const electron = require('electron');
 var cors = require('cors');
 // Module to control application life.
@@ -46,11 +48,14 @@ function createWindow() {
     // Open the DevTools.
     mainWindow.webContents.openDevTools();
 
-    var server = express_app.listen(8000, function () {
-        var host = server.address().address;
-        var port = server.address().port;
-        console.log('Server starting listening at http://%s:%s', host, port);
-    });
+    runExpressServer()
+    
+
+    // var server = express_app.listen(8000, function () {
+    //     var host = server.address().address;
+    //     var port = server.address().port;
+    //     console.log('Server starting listening at http://%s:%s', host, port);
+    // });
 
      // Emitted when the window is closed.
     //  mainWindow.on('closed', function () {
