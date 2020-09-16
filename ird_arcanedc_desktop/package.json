@@ -3,7 +3,10 @@
   "version": "0.1.0",
   "main": "electron-starter.js",
   "private": true,
-  "author": {"email": "aqeelaqeelzeid@gmail.com", "name": "Aqeel Zeid"},
+  "author": {
+    "email": "aqeelaqeelzeid@gmail.com",
+    "name": "Aqeel Zeid"
+  },
   "description": "IRD Arcane Data Collector",
   "dependencies": {
     "@date-io/date-fns": "^1.3.13",
