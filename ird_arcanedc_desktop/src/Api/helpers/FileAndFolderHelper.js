@@ -22,11 +22,6 @@ function initializeAppFolderStructure(baseFolderName) {
 
 }
 
-function getFolderPath()
-{
-    const appFolderName = baseFolderName + `/ArcaneDC`;
-    return appFolderName
-}
 
 
 //Check Wether the Application Folder Structure exist in the OS dependent APP data Directory
@@ -38,10 +33,6 @@ function isInitialized(dir){
         return false;
     }
 
-}
-
-function readFolderStructure() {
-    
 }
 
 function addDirectory(directoryName) {
@@ -65,10 +56,8 @@ function deleteFile(file, relativePath)
 module.exports = {
     initializeAppFolderStructure,
     isInitialized,
-    readFolderStructure,
     addDirectory, 
     removeDirectory, 
     createFile, 
     deleteFile,
-    getFolderPath
 }
