@@ -33,6 +33,8 @@ function createWindow() {
     // Open the DevTools.
     mainWindow.webContents.openDevTools();
 
+    console.log(app.getPath("appData"))
+
     runExpressServer()
     
 }

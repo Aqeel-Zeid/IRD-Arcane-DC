@@ -3,9 +3,9 @@ const express = require('express')
 
 //router.use('/comments', require('./comments'))
 router.use('/users', require('./users'))
+router.use('/testRoutes', require('./testRouts'))
 
-router.get('/', (req, res) => {
-  res.send('sdsds').status(200);
-})
+
+
 
 module.exports = router
