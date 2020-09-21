@@ -5,6 +5,7 @@ import LoginPage from "./Components/Pages/LoginPage";
 import SignUpPage from "./Components/Pages/SignUpPage";
 import CreateProjectPage from "./Components/Pages/CreateProjectPage";
 import SideBar from "./Components/Layouts/SideBar";
+import FormCreatorPage from "./Components/Pages/FormCreatorPage";
 
 export default class App extends React.Component {
   render() {
@@ -22,6 +23,9 @@ export default class App extends React.Component {
           </Route>
           <Route path="/CreateProject">
             <CreateProjectPage />
+          </Route>
+          <Route path="/CreateForm">
+              <FormCreatorPage/>
           </Route>
           <Route path="/">
             <LoginPage />

@@ -1,6 +1,7 @@
 const runExpressServer =  require ('./src/Api/App.js')
 const FileAndFolderHelper = require('./src/Api/helpers/FileAndFolderHelper')
 const electron = require('electron');
+const isDev = require('electron-is-dev')
 
 
 const app = electron.app;
@@ -9,6 +10,9 @@ const BrowserWindow = electron.BrowserWindow;
 
 const path = require('path');
 const url = require('url');
+const { protocol } = require('electron');
+
+const startURL = `file://${path.join(__dirname, '../build/index.html')}`;
 
 // Keep a global reference of the window object, if you don't, the window will
 // be closed automatically when the JavaScript object is garbage collected.
@@ -23,12 +27,18 @@ function createWindow() {
         { 
             width: 800, 
             height: 600,
-            'web-preferences': {'web-security': false},
+            'web-preferences': {'web-security': false , allowRunningInsecureContent : true},
             'node-integration': 'iframe',
+
         });
 
+   
     // and load the index.html of the app.
-    mainWindow.loadURL('http://localhost:3000/');
+    mainWindow.loadURL(url.format({
+        pathname : path.join(__dirname, '../build/index.html'),
+        protocol : 'file',
+        slashes : true
+    }));
 
     // Open the DevTools.
     mainWindow.webContents.openDevTools();

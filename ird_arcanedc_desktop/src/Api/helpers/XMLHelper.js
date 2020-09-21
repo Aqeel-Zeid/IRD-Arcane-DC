@@ -1,7 +1,17 @@
-//Convert JSON Object to XML
-function createXML(jsonObject) {
+//Save XML file in the disk
+function saveXML(xmlFileID ,relativeFolderPath) {
     
 }
+
+//Delete XML file
+function deleteXML(xmlFileID ,relativeFolderPath){}
+
+//Update XML
+function updateXML(xmlFile,atttbuteName,newAttributeValue){}
+
+
+//Append to XML
+function appendToXML(xmlFile,attributeArray){}
 
 //return true if the XML files structure mathes with the XSD
 function check_XML_with_XSD(XSDFile, JSONpayload) {
@@ -20,15 +30,23 @@ function XML_2_JSON(xml){
 
 }
 
+//JSON to XML
+function JSON_2_XML(xml){
+
+}
+
 //Modify the XML and return the XML file
 function replace_Attribute_Of_XML(originalXML , attribute , newValue ){
 
 }
 
 module.exports = {
-    createXML,
+    saveXML,
+    deleteXML,
+    updateXML,
+    appendToXML,
     check_XML_with_XSD,
     match_XML_attribute,
     XML_2_JSON,
-    replace_Attribute_Of_XML    
+    JSON_2_XML    
 }

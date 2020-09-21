@@ -16,9 +16,11 @@
     "@material-ui/pickers": "^3.2.10",
     "autoprefixer": "^9.8.0",
     "classnames": "2.2.6",
+    "concurrently": "^5.3.0",
     "cors": "^2.8.5",
     "date-fns": "^2.16.1",
     "datejs": "^1.0.0-rc3",
+    "electron-is-dev": "^1.2.0",
     "electron-squirrel-startup": "^1.0.0",
     "express": "^4.17.1",
     "lodash": "^4.17.20",
@@ -27,7 +29,8 @@
     "react-bootstrap": "^1.3.0",
     "react-dom": "^16.13.1",
     "react-router-dom": "^5.2.0",
-    "react-scripts": "^3.4.3"
+    "react-scripts": "^3.4.3",
+    "wait-on": "^5.2.0"
   },
   "devDependencies": {
     "@electron-forge/cli": "^6.0.0-beta.53",
@@ -38,7 +41,7 @@
     "@types/googlemaps": "3.39.2",
     "@types/markerclustererplus": "2.1.33",
     "@types/react": "16.9.19",
-    "electron": "9.2.1",
+    "electron": "10.1.1",
     "eslint-plugin-flowtype": "3.13.0",
     "gulp": "4.0.2",
     "gulp-append-prepend": "1.0.8",
@@ -51,6 +54,7 @@
     "eject": "react-scripts eject",
     "electron": "electron electron-starter.js",
     "install:clean": "rm -rf node_modules/ && rm -rf package-lock.json && npm install && npm start",
+    "dev": "concurrently \"npm start\" \"wait-on http://localhost:3000 && electron .\"",
     "package": "electron-forge package",
     "make": "electron-forge make"
   },
@@ -63,9 +67,27 @@
     "not ie <= 11",
     "not op_mini all"
   ],
+  "files": [
+    "*.js",
+    "build",
+    "node_modules"
+  ],
+  "build": {
+    "appId": "myledgerapp",
+    "extends": null,
+    "files": [
+      "./build/**/*",
+      "./electron-starter.js"
+    ]
+  },
+  "directories": {
+    "output": "release/"
+  },
   "config": {
     "forge": {
-      "packagerConfig": {},
+      "packagerConfig": {
+        "asar": true
+      },
       "makers": [
         {
           "name": "@electron-forge/maker-squirrel",
