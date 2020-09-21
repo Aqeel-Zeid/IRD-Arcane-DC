@@ -2,6 +2,7 @@
   "name": "ird_arcanedc_desktop",
   "version": "0.1.0",
   "main": "electron-starter.js",
+  "homepage": "./",
   "private": true,
   "author": {
     "email": "aqeelaqeelzeid@gmail.com",
@@ -41,7 +42,7 @@
     "@types/googlemaps": "3.39.2",
     "@types/markerclustererplus": "2.1.33",
     "@types/react": "16.9.19",
-    "electron": "10.1.1",
+    "electron": "9.2.1",
     "eslint-plugin-flowtype": "3.13.0",
     "gulp": "4.0.2",
     "gulp-append-prepend": "1.0.8",
@@ -53,6 +54,7 @@
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "electron": "electron electron-starter.js",
+    "ebuild": "npm run build && node_modules/.bin/build",
     "install:clean": "rm -rf node_modules/ && rm -rf package-lock.json && npm install && npm start",
     "dev": "concurrently \"npm start\" \"wait-on http://localhost:3000 && electron .\"",
     "package": "electron-forge package",
@@ -74,15 +76,18 @@
   ],
   "build": {
     "appId": "myledgerapp",
+    "asar": true,
     "extends": null,
+    "directories": {
+      "output": "builder"
+    },
     "files": [
       "./build/**/*",
       "./electron-starter.js"
     ]
   },
-  "directories": {
-    "output": "release/"
-  },
+  
+  
   "config": {
     "forge": {
       "packagerConfig": {
