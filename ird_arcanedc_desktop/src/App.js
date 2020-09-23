@@ -5,7 +5,8 @@ import LoginPage from "./Components/Pages/LoginPage";
 import SignUpPage from "./Components/Pages/SignUpPage";
 import CreateProjectPage from "./Components/Pages/CreateProjectPage";
 import SideBar from "./Components/Layouts/SideBar";
-import FormCreatorPage from "./Components/Pages/FormCreatorPage";
+import QuestionnaireCreatorPage from "./Components/Pages/QuestionnaireCreatorPage";
+
 
 export default class App extends React.Component {
   render() {
@@ -24,8 +25,8 @@ export default class App extends React.Component {
           <Route path="/CreateProject">
             <CreateProjectPage />
           </Route>
-          <Route path="/CreateForm">
-              <FormCreatorPage/>
+          <Route path="/CreateQuestionnaire">
+            <QuestionnaireCreatorPage/>
           </Route>
           <Route path="/">
             <LoginPage />
